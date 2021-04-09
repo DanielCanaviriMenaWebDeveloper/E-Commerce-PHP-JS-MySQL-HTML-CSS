@@ -24,5 +24,7 @@
         <script src="Util/js/adminlte.min.js"></script>
         <!-- AdminLTE for demo purposes -->
         <script src="Util/js/demo.js"></script>
+
+        <script src="Util/js/bootstrap.min.js"></script>
     </body>
 </html>
