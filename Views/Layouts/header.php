@@ -11,6 +11,7 @@
         <link rel="stylesheet" href="Util/css/css/all.min.css">
         <!-- Theme style -->
         <link rel="stylesheet" href="Util/css/adminlte.min.css">
+        <link rel="shortcut icon" href="#">
     </head>
     <body class="hold-transition sidebar-mini">
         <!-- Site wrapper -->

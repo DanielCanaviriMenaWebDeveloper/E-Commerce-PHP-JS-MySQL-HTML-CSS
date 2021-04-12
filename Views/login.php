@@ -13,6 +13,7 @@
         <!-- <link rel="stylesheet" href="../../plugins/icheck-bootstrap/icheck-bootstrap.min.css"> -->
         <!-- Theme style -->
         <link rel="stylesheet" href="../Util/css/adminlte.min.css">
+        <link rel="shortcut icon" href="#">
     </head>
     <body class="hold-transition login-page">
         <div class="login-box">
