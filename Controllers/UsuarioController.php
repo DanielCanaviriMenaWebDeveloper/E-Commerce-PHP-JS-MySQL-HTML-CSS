@@ -7,7 +7,7 @@
 if($_POST['funcion'] == 'login') {
     $user = $_POST['user'];
     $pass = $_POST['pass'];
-    
     $usuario->loguearse($user, $pass);
+    var_dump($usuario);
 }
 
