@@ -13,6 +13,7 @@
         <!-- <link rel="stylesheet" href="../../plugins/icheck-bootstrap/icheck-bootstrap.min.css"> -->
         <!-- Theme style -->
         <link rel="stylesheet" href="../Util/css/adminlte.min.css">
+        <link rel="stylesheet" href="../Util/css/toastr.min.css">
         <link rel="shortcut icon" href="#">
     </head>
     <body class="hold-transition login-page">
@@ -69,6 +70,7 @@
         <script src="../Util/js/bootstrap.bundle.min.js"></script>
         <!-- AdminLTE App -->
         <script src="../Util/js/adminlte.min.js"></script>
+        <script src="../Util/js/toastr.min.js"></script>
         <script src="login.js"></script>
     </body>
 </html>
