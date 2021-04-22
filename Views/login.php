@@ -25,7 +25,7 @@
             <!-- /.login-logo -->
             <div class="card">
                 <div class="card-body login-card-body">
-                    <p class="login-box-msg">Regístrese para iniciar su sesión</p>
+                    <p class="login-box-msg">Inicie sesión</p>
 
                     <form id="form-login">
                         <div class="input-group mb-3">
@@ -56,7 +56,7 @@
                         <a href="">Olvidé mi contraseña</a>
                     </p>
                     <p class="mb-0">
-                        <a href="" class="text-center">Registrarse</a>
+                        <a href="register.php" class="text-center">Registrarse</a>
                     </p>
                 </div>
                 <!-- /.login-card-body -->
