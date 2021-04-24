@@ -165,13 +165,21 @@
                         apellidos: {
                             required: true,
                         },
+                        dni: {
+                            required: true,
+                            digits: true,
+                            minlength: 8,
+                            maxlength: 8
+                        },
                         email: {
                             required: true,
                             email: true,
                         },
-                        password: {
+                        telefono: {
                             required: true,
-                            minlength: 5
+                            digits: true,
+                            minlength: 8,
+                            maxlength: 8
                         },
                         terms: {
                             required: true
@@ -194,18 +202,27 @@
                         },
                         nombres: {
                             required: "* Este campo es obligatorio",
-                            minlength: "* La contraseña debe tener como minimo 8 caracteres",
-                            maxlength: "* La contraseña debe tener como maximo 20 caracteres"
+                        },
+                        apellidos: {
+                            required: "* Este campo es obligatorio",
+                        },
+                        dni: {
+                            required: "* Este campo es obligatorio",
+                            digits: "* Solo se admiten números en este campo",
+                            minlength: "* El DNI debe ser de solo 8 caracteres",
+                            maxlength: "* El DNI debe ser de solo 8 caracteres"
                         },
                         email: {
-                            required: "Please enter a email address",
-                            email: "Please enter a vaild email address"
+                            required: "* Este campo es obligatorio",
+                            email: "* El formato no corresponde a un correo electronico"
                         },
-                        password: {
-                            required: "Please provide a password",
-                            minlength: "Your password must be at least 5 characters long"
+                        telefono: {
+                            required: "* Este campo es obligatorio",
+                            digits: "* Solo se admiten números en este campo",
+                            minlength: "* El teléfono debe ser de solo 8 caracteres",
+                            maxlength: "* El teléfono debe ser de solo 8 caracteres"
                         },
-                        terms: "Please accept our terms"
+                        terms: "Por favor acepte los terminos"
                     },
                     errorElement: 'span',
                     errorPlacement: function (error, element) {
