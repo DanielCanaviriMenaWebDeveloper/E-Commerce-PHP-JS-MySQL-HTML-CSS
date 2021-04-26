@@ -1,20 +1,40 @@
 $(document).ready(function() {
+
     $.validator.setDefaults({
 		submitHandler: function () {
-			alert("Form successful submitted!");
+			alert("¡Formulario enviado correctamente!");
 		},
-    });
+	});
+	
+    jQuery.validator.addMethod(
+		"usuario_existente",
+		function (value, element) {
+			let funcion = "verificar_usuario";
+			$.post(
+				"../Controllers/UsuarioController.php",
+				{ funcion, value },
+				(response) => {
+					console.log(response);
+				}
+			);
+			return "";
+		},
+		"El nombre de usuario ya existe, introduzca un nombre de usuario distinto"
+	);
+
     jQuery.validator.addMethod("letras",
     function(value, element) {
         return /^[A-Za-z]+$/.test(value);
     }
-    ,"* Este campo solo permite letras");
+	, "* Este campo solo permite letras");
+	
 	$("#form-register").validate({
 		rules: {
 			username: {
 				required: true,
                 minlength: 7,
 				maxlength: 20,
+				usuario_existente: true
 			},
 			pass: {
 				required: true,
@@ -110,4 +130,4 @@ $(document).ready(function() {
 			$(element).addClass("is-valid");
 		},
 	});
-})
+});
