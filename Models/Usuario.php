@@ -18,4 +18,12 @@
             $this->objetos = $query->fetchAll();
             return $this->objetos;
         }
+
+        function verificar_usuario($user) {
+            $sql = "SELECT * FROM usuario WHERE user=:user";
+            $query = $this->acceso->prepare($sql);
+            $query->execute(array(':user'=>$user));
+            $this->objetos = $query->fetchAll();
+            return $this->objetos;
+        }
     }   

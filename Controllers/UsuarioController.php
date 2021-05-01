@@ -34,5 +34,11 @@ if($_POST['funcion'] == 'verificar_sesion') {
     } else {
         echo '';
     }
-}
+}   
+
+if($_POST['funcion'] == 'verificar_usuario') {
+    $username = $_POST['value'];
+    $usuario->verificar_usuario($username);
+    var_dump($usuario);        
+}   
 
