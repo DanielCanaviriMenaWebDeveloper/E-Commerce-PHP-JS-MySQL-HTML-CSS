@@ -17,6 +17,7 @@
         <link rel="shortcut icon" href="#">
     </head>
     <!-- Modal -->
+    <!-- El atributo id nos sirve para poder llamar el modal -->
     <div class="modal fade" id="terminos" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">

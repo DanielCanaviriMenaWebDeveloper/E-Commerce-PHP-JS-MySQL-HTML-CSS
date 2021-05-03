@@ -39,6 +39,10 @@ if($_POST['funcion'] == 'verificar_sesion') {
 if($_POST['funcion'] == 'verificar_usuario') {
     $username = $_POST['value'];
     $usuario->verificar_usuario($username);
-    var_dump($usuario);        
+    /* var_dump($usuario);  */ 
+    /* Si el atributo objetos de nuestro objeto usuario contiene registros, significa que existe el usuario. */
+    if($usuario->objetos != null) {
+        echo 'success'; 
+    }
 }   
 

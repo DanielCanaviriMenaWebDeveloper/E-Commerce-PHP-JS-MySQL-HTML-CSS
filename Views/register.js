@@ -10,29 +10,53 @@ $(document).ready(function() {
 		"usuario_existente",
 		function (value, element) {
 			let funcion = "verificar_usuario";
-			$.post(
+			let bandera;
+			/* $.post(
 				"../Controllers/UsuarioController.php",
 				{ funcion, value },
 				(response) => {
 					console.log(response);
+					if(response == "success") {
+						bandera = false;
+					} else {
+						bandera = true;
+					}
 				}
 			);
-			return "";
+			return bandera; */
+			$.ajax({ // Usamos AJAX de forma sincrona a diferencia de post que es de forma asincrona
+				type: "POST",
+				url: "../Controllers/UsuarioController.php",
+				data: "funcion=" + funcion + "&&value=" + value,
+				async: false,
+				success: function(response) {
+					if (response == "success") {
+						bandera = false;
+					} else {
+						bandera = true;
+					}
+				}  
+			});
+			/* console.log(bandera); */
+			return bandera;
 		},
-		"El nombre de usuario ya existe, introduzca un nombre de usuario distinto"
+		"* El nombre de usuario ya existe, introduzca un nombre de usuario distinto"
 	);
 
-    jQuery.validator.addMethod("letras",
-    function(value, element) {
-        return /^[A-Za-z]+$/.test(value);
-    }
-	, "* Este campo solo permite letras");
+    jQuery.validator.addMethod(
+		"letras",
+		function(value, element) {
+			return /^[A-Za-z]+$/.test(value);
+		},
+		"* Este campo solo permite letras"
+	);
+
 	
 	$("#form-register").validate({
 		rules: {
 			username: {
 				required: true,
-                minlength: 7,
+                minlength: 8,
 				maxlength: 20,
 				usuario_existente: true
 			},
