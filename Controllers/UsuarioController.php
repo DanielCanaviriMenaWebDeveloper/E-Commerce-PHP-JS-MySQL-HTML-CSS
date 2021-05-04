@@ -4,6 +4,7 @@
     /* echo $_POST['user'];
     echo $_POST['pass']; */
     session_start();
+    
 if($_POST['funcion'] == 'login') {
     $user = $_POST['user'];
     $pass = $_POST['pass'];
@@ -44,5 +45,17 @@ if($_POST['funcion'] == 'verificar_usuario') {
     if($usuario->objetos != null) {
         echo 'success'; 
     }
+}
+
+if($_POST['funcion'] == 'registrar_usuario') {
+    $username = $_POST['username'];
+    $pass = $_POST['pass'];
+    $nombres = $_POST['nombres'];
+    $apellidos = $_POST['apellidos'];
+    $dni = $_POST['dni'];
+    $email = $_POST['email'];
+    $telefono = $_POST['telefono'];
+    $usuario->registrar_usuario($username, $pass, $nombres, $apellidos, $dni, $email, $telefono);
+    echo 'success';
 }   
 

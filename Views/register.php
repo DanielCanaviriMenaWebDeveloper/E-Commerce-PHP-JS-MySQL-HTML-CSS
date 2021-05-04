@@ -14,6 +14,7 @@
         <!-- Theme style -->
         <link rel="stylesheet" href="../Util/css/adminlte.min.css">
         <link rel="stylesheet" href="../Util/css/toastr.min.css">
+        <link rel="stylesheet" href="../Util/css/sweetalert2.min.css">
         <link rel="shortcut icon" href="#">
     </head>
     <!-- Modal -->
@@ -136,6 +137,7 @@
         <script src="../Util/js/toastr.min.js"></script>
         <script src="../Util/js/jquery.validate.min.js"></script>
         <script src="../Util/js/additional-methods.min.js"></script>
+        <script src="../Util/js/sweetalert2.min.js"></script>
         <script src="register.js"></script>
     </body>
 </html>

@@ -1,8 +1,59 @@
 $(document).ready(function() {
+	var funcion;
+	verificar_sesion();
+
+	function verificar_sesion() {
+		funcion = "verificar_sesion";
+		$.post(
+			"../Controllers/UsuarioController.php",
+			{ funcion },
+			(response) => {
+				/* console.log(response); */
+				if (response != "") {
+					/* Si la condición se cumple hay una sesión abierta */
+					location.href = "../index.php";
+				}
+			}
+		);
+	}
 
     $.validator.setDefaults({
 		submitHandler: function () {
-			alert("¡Formulario enviado correctamente!");
+			/* alert("¡Formulario enviado correctamente!"); */
+			let username = $('#username').val();
+			let pass = $('#pass').val();
+			let nombres = $('#nombres').val();
+			let apellidos = $('#apellidos').val();
+			let dni = $('#dni').val();
+			let email = $('#email').val();
+			let telefono = $('#telefono').val();
+			funcion = "registrar_usuario";
+			$.post(
+				"../Controllers/UsuarioController.php",
+				{ funcion, username, pass, nombres, dni, telefono, apellidos, email },
+				(response) => {
+					response = response.trim(); // Eliminamos espacios en blanco
+					/* Usamos https://sweetalert2.github.io/ para los mensajes */
+					if (response == "success") {
+						Swal.fire({
+							position: "center",
+							icon: "success",
+							title: "Se ha registrado correctamente",
+							showConfirmButton: false,
+							timer: 2500,
+						}).then(function() {
+							$('#form-register').trigger('reset');
+							location.href = '../Views/login.php';
+						});
+					} else {
+						Swal.fire({
+							icon: "error",
+							title: "Error",
+							text: "Hubo conflicto al registrarse, comuniquese con el area de sistemas",
+						});
+					}
+				}
+			);
 		},
 	});
 	

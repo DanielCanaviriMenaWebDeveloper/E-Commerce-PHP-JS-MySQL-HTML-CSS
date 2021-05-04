@@ -4,12 +4,16 @@ $(document).ready(function() {
 
     function verificar_sesion() {
         funcion = 'verificar_sesion';
-        $.post('../Controllers/UsuarioController.php', { funcion }, (response) => {
-            /* console.log(response); */
-            if (response != '') { /* Si la condición se cumple hay una sesión abierta */
-                location.href = '../index.php';
+        $.post(
+            '../Controllers/UsuarioController.php',
+            { funcion },
+            (response) => {
+                /* console.log(response); */
+                if (response != '') { /* Si la condición se cumple hay una sesión abierta */
+                    location.href = '../index.php';
+                }
             }
-        });
+        );
     }
 
 
