@@ -16,7 +16,8 @@ $(document).ready(function () {
 				$("#avatar_menu").attr("src", "../Util/img/" + sesion.avatar);
 				$("#usuario_menu").text(sesion.user);
 			} else {
-				$("#nav_usuario").hide();
+                $("#nav_usuario").hide();
+                location.href = 'login.php';
 			}
 		});
 	}
