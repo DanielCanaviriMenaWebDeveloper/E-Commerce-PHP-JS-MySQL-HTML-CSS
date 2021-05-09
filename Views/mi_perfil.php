@@ -42,13 +42,13 @@
 				<div class="card card-widget widget-user shadow">
 					<!-- Add the bg color to the header using any of the bg-* classes -->
 					<div class="widget-user-header bg-info">
-						<h3 class="widget-user-username">Alexander Pierce</h3>
+						<h3 id="username" class="widget-user-username"></h3>
 
-						<h5 class="widget-user-desc">Founder &amp; CEO</h5>
+						<h5 id="tipo_usuario" class="widget-user-desc"></h5>
 					</div>
 
 					<div class="widget-user-image">
-						<img class="img-circle elevation-2" src="../Util/img/user_daniel.jpg" alt="User Avatar">
+						<img id="avatar_perfil" class="img-circle elevation-2" src="" alt="User Avatar">
 					</div>
 
 					<div class="card-footer">
@@ -136,14 +136,16 @@
 					<div class="card-body pt-0 mt-3">
 						<div class="row">
 							<div class="col-8">
-								<h2 class="lead"><b>Nicole Pearson</b></h2>
+								<h2 id="nombres" class="lead"><b></b></h2>
 					
-								<p class="text-muted text-sm"><b>About: </b> Web Designer / UX / Graphic Artist / Coffee Lover </p>
+								<!-- <p class="text-muted text-sm"><b>About: </b> Web Designer / UX / Graphic Artist / Coffee Lover </p> -->
 					
 								<ul class="ml-4 mb-0 fa-ul text-muted">
-									<li class="small"><span class="fa-li"><i class="fas fa-lg fa-building"></i></span> Address: Demo Street 123, Demo City 04312, NJ</li>
+									<li class="small"><span class="fa-li"><i class="fas fa-address-card"></i></span> DNI:  <span id="dni"></span></li>
 									
-									<li class="small"><span class="fa-li"><i class="fas fa-lg fa-phone"></i></span> Phone #: + 800 - 12 12 23 52</li>
+									<li class="small"><span class="fa-li"><i class="fas fa-at"></i></span> Email: <span id="email"></span></li>
+
+									<li class="small"><span class="fa-li"><i class="fas fa-lg fa-phone"></i></span> Teléfono: <span id="telefono"></span></li>
 								</ul>
 							</div>
 

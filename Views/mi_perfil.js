@@ -1,6 +1,7 @@
 $(document).ready(function () {
 	var funcion;
 	verificar_sesion();
+	obtener_datos();
 
 	function verificar_sesion() {
 		funcion = "verificar_sesion";
@@ -21,4 +22,26 @@ $(document).ready(function () {
 			}
 		});
 	}
+
+	function obtener_datos() {
+		funcion = "obtener_datos";
+		$.post("../Controllers/UsuarioController.php", { funcion }, (response) => {
+			/* console.log(response); */
+			/* Como estamos recibiendo los valores en un String del lado del servidor ahora se procede a convertirlo en array para acceder a los datos. */
+			let usuario = JSON.parse(response);
+			/* console.log(usuario); */
+			$('#username').text(usuario.username);
+			$("#tipo_usuario").text(usuario.tipo_usuario);
+			$("#avatar_perfil").attr("src", "../Util/img/" + usuario.avatar);
+			$("#nombres").text(usuario.nombres + " " + usuario.apellidos);
+			$("#dni").text(usuario.dni);
+			$("#email").text(usuario.email);
+			$("#telefono").text(usuario.telefono);
+
+		});
+	}
+
+
+
+
 });

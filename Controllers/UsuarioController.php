@@ -59,3 +59,24 @@ if($_POST['funcion'] == 'registrar_usuario') {
     echo 'success';
 }   
 
+if($_POST['funcion'] == 'obtener_datos') {
+    $usuario->obtener_datos($_SESSION['id']);
+   /*  var_dump($usuario); */
+    foreach($usuario->objetos as $objeto) {
+        $json[] = array(
+            'username' => $objeto->user,
+            'nombres' => $objeto->nombres,
+            'apellidos' =>$objeto->apellidos,
+            'dni' =>$objeto->dni,
+            'email' =>$objeto->email,
+            'telefono' =>$objeto->telefono,
+            'avatar' =>$objeto->avatar,
+            'tipo_usuario' =>$objeto->tipo,
+        );
+        /* Del servidor al frontend php no nos permite enviar un array de datos, por ese motivo lo enviamos como String */
+        $jsonstring = json_encode($json[0]); /* Al ser solo un registro el envio usamos la posición 0 del array donde esta ese registro. */
+        echo $jsonstring;
+    }
+
+}   
+
