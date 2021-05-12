@@ -4,6 +4,57 @@
                 <title>Mi perfil | Ecommerce</title>
                 <!-- Content Header (Page header) -->
 
+<!-- Modal -->
+<div class="modal fade" id="modal_direcciones" role="dialog">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h5 class="modal-title" id="exampleModalLabel">Agregar Dirección</h5>
+
+				<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+			</div>
+
+			<div class="modal-body">
+				<form id="form-direccion">
+					<div class="form-group">
+						<label for="departamento">Departamento: </label>
+						<select name="departamento" id="departamento" class="form-control" style="width:100%" required></select>
+					</div>
+
+					<div class="form-group">
+						<label for="provincia">Provincia: </label>
+						<select name="provincia" id="provincia" class="form-control" style="width:100%" required></select>
+					</div>
+
+					<div class="form-group">
+						<label for="distrito">Distrito: </label>
+						<select name="distrito" id="distrito" class="form-control" style="width:100%" required></select>
+					</div>
+
+					<div class="form-group">
+						<label for="direccion">Direccion: </label>
+						<input name="direccion" id="direccion" class="form-control" placeholder="Ingrese su dirección" required>
+					</div>
+
+					<div class="form-group">
+						<label for="referencia">Referencia: </label>
+						<input name="referencia" id="referencia" class="form-control" placeholder="Ingrese alguna referencia">
+					</div>
+
+
+
+				</form>
+			</div>
+
+			<div class="modal-footer">
+				<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+				<button type="submit" class="btn btn-primary">Crear Dirección</button>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- / Modal -->
+
 <!-- Main content -->
 <section class="content">
 	<div class="container-fluid">
@@ -122,6 +173,7 @@
 					
 				</div>-->
 
+				<!-- Card Mis dátos personales -->
 				<div class="card card-light d-flex flex-fill">
 					<div class="card-header border-bottom-0">
 						<strong>Mis datos personales</strong>
@@ -167,13 +219,15 @@
 					</div>
 					-->
 				</div>
+				<!-- / Card Mis dátos personales -->
 
+				<!-- Card Mis direcciones de envio -->
 				<div class="card card-light d-flex flex-fill">
 					<div class="card-header border-bottom-0">
 						<strong>Mis direcciones de envio</strong>
 
 						<div class="card-tools">
-							<button type="button" class="btn btn-tool">
+							<button type="button" class="btn btn-tool" data-bs-toggle="modal" data-bs-target="#modal_direcciones">
 								<i class="fas fa-plus"></i>
 							</button>
 						</div> 
@@ -199,7 +253,9 @@
 						</div>
 					</div>
 				</div>
+				<!-- / Card Mis direcciones de envio -->
 
+				<!-- Card Mis tarjetas de pago -->
 				<div class="card card-light d-flex flex-fill">
 					<div class="card-header border-bottom-0">
 						<strong>Mis tarjetas de pago</strong>
@@ -231,6 +287,7 @@
 						</div>
 					</div>
 				</div>
+				<!-- / Card Mis tarjetas de pago -->
 			</div><!-- /.col-md-4 -->
 
 			<div class="col-md-8">

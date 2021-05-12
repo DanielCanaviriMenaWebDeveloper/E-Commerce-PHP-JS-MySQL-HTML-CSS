@@ -26,5 +26,8 @@
         <script src="../Util/js/demo.js"></script>
 
         <script src="../Util/js/bootstrap.min.js"></script>
+        
+        <!-- Select2 -->
+        <script src="../Util/js/select2.min.js"></script>
     </body>
 </html>

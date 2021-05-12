@@ -7,12 +7,17 @@
 
         <!-- Google Font: Source Sans Pro -->
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+        
+        <!-- Select2 -->
+        <link rel="stylesheet" href="../Util/css/select2.min.css">
         <!-- Font Awesome -->
         <link rel="stylesheet" href="../Util/css/css/all.min.css">
         <!-- Theme style -->
         <link rel="stylesheet" href="../Util/css/adminlte.min.css">
+        
         <link rel="shortcut icon" href="#">
     </head>
+
     <body class="hold-transition sidebar-mini">
         <!-- Site wrapper -->
         <div class="wrapper">
