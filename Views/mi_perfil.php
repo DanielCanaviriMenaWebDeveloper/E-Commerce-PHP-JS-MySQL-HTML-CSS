@@ -15,10 +15,15 @@
 			</div>
 
 			<div class="modal-body">
+				<!-- Form -->
 				<form id="form-direccion">
 					<div class="form-group">
 						<label for="departamento">Departamento: </label>
-						<select name="departamento" id="departamento" class="form-control" style="width:100%" required></select>
+						<select name="departamento" id="departamento" class="form-control" style="width:100%" required>
+							<!-- <option>La Paz</option>
+							<option>Oruro</option>
+							<option>Potosi</option> -->
+						</select>
 					</div>
 
 					<div class="form-group">

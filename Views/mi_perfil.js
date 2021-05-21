@@ -2,7 +2,8 @@ $(document).ready(function () {
 	var funcion;
 	verificar_sesion();
 	obtener_datos();
-
+	llenar_departamentos();
+		
 	$('#departamento').select2({
 		placeholder: 'Seleccione un departamento',
 		language: {
@@ -37,6 +38,41 @@ $(document).ready(function () {
 				return "Buscando...";
 			},
 		},
+	});
+
+	function llenar_departamentos() {
+		funcion = "llenar_departamentos";
+		$.post("../Controllers/DepartamentoController.php", { funcion }, (response) => {
+			/* console.log(response); */
+			let departamentos = JSON.parse(response);
+			/* console.log(departamentos); */
+			let template = "";
+			departamentos.forEach(departamento => {
+				template += `<option value="${departamento.id}">${departamento.nombre}</option>`;
+			});
+			/* console.log(template); */
+			$('#departamento').html(template);  
+			$('#departamento').val('').trigger('change');
+		});
+	}
+
+	/* Detecta si existe algun cambio en el Select2 de id llamado departamento y ejecuta una función 
+	en caso exista dicho cambio. */
+	$('#departamento').change(function() {
+		/* Obtenemos el id del departemento seleccionado en el select */
+		let id_departamento = $('#departamento').val();
+		funcion = "llenar_provincia"; 
+		$.post("../Controllers/ProvinciaController.php", { funcion, id_departamento }, (response) => {
+			/* console.log(response); */
+			let provincias = JSON.parse(response);
+			/* console.log(provincias); */
+			let template = "";
+			provincias.forEach(provincia => {
+				template += `<option value="${provincia.id}">${provincia.nombre}</option>`;
+			});
+			/* console.log(template); */
+			$('#provincia').html(template);  
+		});
 	});
 
 	function verificar_sesion() {
