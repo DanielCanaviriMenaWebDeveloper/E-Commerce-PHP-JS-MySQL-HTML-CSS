@@ -14,6 +14,8 @@
         <link rel="stylesheet" href="../Util/css/css/all.min.css">
         <!-- Theme style -->
         <link rel="stylesheet" href="../Util/css/adminlte.min.css">
+        <!-- Sweet Alert 2 -->
+        <link rel="stylesheet" href="../Util/css/sweetalert2.min.css">
         
         <link rel="shortcut icon" href="#">
     </head>

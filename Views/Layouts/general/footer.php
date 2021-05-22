@@ -29,5 +29,8 @@
         
         <!-- Select2 -->
         <script src="../Util/js/select2.min.js"></script>
+
+        <!-- Sweet Alert 2 -->
+        <script src="../Util/js/sweetalert2.min.js"></script>
     </body>
 </html>

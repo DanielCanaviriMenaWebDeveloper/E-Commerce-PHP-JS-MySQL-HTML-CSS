@@ -13,48 +13,51 @@
 
 				<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 			</div>
+			<!-- <form id="form-direccion"> -->
+				<div class="modal-body">
+					<!-- Form -->
+					<form id="form-direccion">
+						<!-- select Departamento -->
+						<div class="form-group">
+							<label for="departamento">Departamento: </label>
+							<select name="departamento" id="departamento" class="form-control" style="width:100%" required>
+								<!-- <option>La Paz</option>
+								<option>Oruro</option>
+								<option>Potosi</option> -->
+							</select>
+						</div>
 
-			<div class="modal-body">
-				<!-- Form -->
-				<form id="form-direccion">
-					<div class="form-group">
-						<label for="departamento">Departamento: </label>
-						<select name="departamento" id="departamento" class="form-control" style="width:100%" required>
-							<!-- <option>La Paz</option>
-							<option>Oruro</option>
-							<option>Potosi</option> -->
-						</select>
-					</div>
+						<!-- select Provincia -->
+						<div class="form-group">
+							<label for="provincia">Provincia: </label>
+							<select name="provincia" id="provincia" class="form-control" style="width:100%" required></select>
+						</div>
 
-					<div class="form-group">
-						<label for="provincia">Provincia: </label>
-						<select name="provincia" id="provincia" class="form-control" style="width:100%" required></select>
-					</div>
+						<!-- select Distrito -->
+						<div class="form-group">
+							<label for="distrito">Distrito: </label>
+							<select name="distrito" id="distrito" class="form-control" style="width:100%" required></select>
+						</div>
 
-					<div class="form-group">
-						<label for="distrito">Distrito: </label>
-						<select name="distrito" id="distrito" class="form-control" style="width:100%" required></select>
-					</div>
+						<!-- imput Dirección -->
+						<div class="form-group">
+							<label for="direccion">Direccion: </label>
+							<input name="direccion" id="direccion" class="form-control" placeholder="Ingrese su dirección" required>
+						</div>
 
-					<div class="form-group">
-						<label for="direccion">Direccion: </label>
-						<input name="direccion" id="direccion" class="form-control" placeholder="Ingrese su dirección" required>
-					</div>
+						<!-- input Referencia -->
+						<div class="form-group">
+							<label for="referencia">Referencia: </label>
+							<input name="referencia" id="referencia" class="form-control" placeholder="Ingrese alguna referencia">
+						</div>
+					<!-- </form> -->
+				</div>
 
-					<div class="form-group">
-						<label for="referencia">Referencia: </label>
-						<input name="referencia" id="referencia" class="form-control" placeholder="Ingrese alguna referencia">
-					</div>
-
-
-
-				</form>
-			</div>
-
-			<div class="modal-footer">
-				<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-				<button type="submit" class="btn btn-primary">Crear Dirección</button>
-			</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+					<button type="submit" class="btn btn-primary">Crear Dirección</button>
+				</div>
+			</form>
 		</div>
 	</div>
 </div>

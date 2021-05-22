@@ -71,7 +71,25 @@ $(document).ready(function () {
 				template += `<option value="${provincia.id}">${provincia.nombre}</option>`;
 			});
 			/* console.log(template); */
-			$('#provincia').html(template);  
+			$('#provincia').html(template);
+			$("#provincia").val("").trigger("change");  
+		});
+	});
+
+	$('#provincia').change(function() {
+		/* Obtenemos el id de la provincia seleccionada en el select */
+		let id_provincia = $('#provincia').val();
+		funcion = "llenar_distritos"; 
+		$.post("../Controllers/DistritoController.php", { funcion, id_provincia }, (response) => {
+			/* console.log(response); */
+			let distritos = JSON.parse(response);
+			/* console.log(distritos); */
+			let template = "";
+			distritos.forEach(distrito => {
+				template += `<option value="${distrito.id}">${distrito.nombre}</option>`;
+			});
+			/* console.log(template); */
+			$('#distrito').html(template);  
 		});
 	});
 
@@ -113,7 +131,40 @@ $(document).ready(function () {
 		});
 	}
 
+	/* Código que envia los campos de Agregar Dirección a ser almacenados en la BD. */
+	$("#form-direccion").submit((e) => {
+		funcion = "crear_direccion";
+		let id_distrito = $("#distrito").val();
+		let direccion = $("#direccion").val();
+		let referencia = $("#referencia").val();
 
-
+		$.post(
+			"../Controllers/UsuarioDistritoController.php",
+			{ id_distrito, direccion, referencia, funcion },
+			(response) => {
+				console.log(response);
+				if(response == 'success') {
+					Swal.fire({
+						position: "center",
+						icon: "success",
+						title: "Se ha registrado tu dirección correctamente",
+						showConfirmButton: false,
+						timer: 2000,
+					}).then(function () {
+						$("#form-direccion").trigger("reset");
+						$("#departamento").val("").trigger("change");
+					});
+				}else {
+					Swal.fire({
+						icon: "error",
+						title: "Error",
+						text:
+							"Hubo conflicto al registrar la dirección, comuniquese con el area de sistemas",
+					});
+				}
+			}
+		);
+		e.preventDefault(); /* Evita que se refresque la pagina */
+	});
 
 });
