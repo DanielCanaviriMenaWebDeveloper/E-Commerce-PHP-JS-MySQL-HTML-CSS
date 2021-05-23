@@ -3,6 +3,7 @@ $(document).ready(function () {
 	verificar_sesion();
 	obtener_datos();
 	llenar_departamentos();
+	llenar_direcciones();
 		
 	$('#departamento').select2({
 		placeholder: 'Seleccione un departamento',
@@ -39,6 +40,18 @@ $(document).ready(function () {
 			},
 		},
 	});
+
+	function llenar_direcciones() {
+		funcion = "llenar_direcciones";
+		$.post(
+			"../Controllers/UsuarioDistritoController.php",
+			{ funcion },
+			(response) => {
+				console.log(response);
+				let direcciones = JSON.parse(response);
+			}
+		);
+	}
 
 	function llenar_departamentos() {
 		funcion = "llenar_departamentos";

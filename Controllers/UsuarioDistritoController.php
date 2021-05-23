@@ -11,5 +11,9 @@ if($_POST['funcion'] == 'crear_direccion') {
 
     $usuario_distrito->crear_dirección($id_usuario, $id_distrito, $direccion, $referencia);
     echo 'success';
+}
+
+if($_POST['funcion'] == 'llenar_direcciones') {
+    
 }   
 
