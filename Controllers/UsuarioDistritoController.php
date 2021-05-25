@@ -14,6 +14,21 @@ if($_POST['funcion'] == 'crear_direccion') {
 }
 
 if($_POST['funcion'] == 'llenar_direcciones') {
-    
-}   
+    $id_usuario = $_SESSION['id'];
+    $usuario_distrito->llenar_direcciones($id_usuario);
+    $json = array();
+    foreach ($usuario_distrito->objetos as $objeto) {
+        $json[] = array(
+            'direccion' => $objeto->direccion,
+            'referencia' => $objeto->referencia,
+            'departamento' => $objeto->departamento,
+            'provincia' => $objeto->provincia,
+            'distrito' => $objeto->distrito
+        );
+    }
+    $jsonstring = json_encode($json);
+    echo $jsonstring;
+}
+
+
 

@@ -48,7 +48,6 @@ $(document).ready(function () {
 			{ funcion },
 			(response) => {
 				console.log(response);
-				let direcciones = JSON.parse(response);
 			}
 		);
 	}
