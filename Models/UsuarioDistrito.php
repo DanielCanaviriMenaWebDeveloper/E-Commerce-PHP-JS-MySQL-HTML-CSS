@@ -17,7 +17,7 @@
         }
 
         function llenar_direcciones($id_usuario) {
-            $sql = "SELECT direccion, referencia, d.nombre as distrito, p.nombre as provincia, dep.nombre as departamento 
+            $sql = "SELECT ud.id as id, direccion, referencia, d.nombre as distrito, p.nombre as provincia, dep.nombre as departamento 
             FROM usuario_distrito ud
             JOIN distrito d ON d.id = ud.id_distrito 
             JOIN provincia p ON p.id = d.id_provincia

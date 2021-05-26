@@ -241,8 +241,9 @@
 						</div> 
 					</div>
 
-					<div class="card-body pt-0 mt-3">
-						<div class="row">
+					<div id="direcciones" class="card-body pt-0 mt-3">
+						<!-- Card de Direcciones generado dinamicamente desde mi_perfil.js -->
+						<!-- <div class="row">
 							<div class="col-8">
 								<h2 class="lead"><b>Nicole Pearson</b></h2>
 					
@@ -258,7 +259,7 @@
 							<div class="col-4 text-center">
 								<img src="../Util/img/direcciones_envio.png" alt="user-avatar" class="img-circle img-fluid">
 							</div>
-						</div>
+						</div> -->
 					</div>
 				</div>
 				<!-- / Card Mis direcciones de envio -->

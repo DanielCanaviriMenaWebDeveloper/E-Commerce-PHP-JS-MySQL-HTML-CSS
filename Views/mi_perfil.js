@@ -47,10 +47,85 @@ $(document).ready(function () {
 			"../Controllers/UsuarioDistritoController.php",
 			{ funcion },
 			(response) => {
-				console.log(response);
+				/* console.log(response); */
+				let direcciones = JSON.parse(response);
+				console.log(direcciones);
+				let template = "";
+				let contador = 0;
+				direcciones.forEach(direccion => {
+					contador = contador + 1;
+					template += `
+					<div class="callout callout-info">
+						<div class="card-header">
+							<strong>Dirección ${contador}</strong>
+							<div class="card-tools">
+								<button dir_id="${direccion.id}" type="button" class="eliminar_direccion btn btn-tool">
+									<i class="fas fa-trash-alt"></i>
+								</button>
+							</div>
+						</div>
+
+						<div class="card-body">
+							<h2 class="lead"><b>${direccion.direccion}</b></h2>
+							<p class="text-muted text-sm"><b>Referencia: </b>${direccion.referencia}</p>
+							<ul class="ml-4 mb-0 fa-ul text-muted">
+								<li class="small"><span class="fa-li"><i class="fas fa-lg fa-building"></i></span> ${direccion.distrito}, ${direccion.provincia}, ${direccion.departamento}.</li>
+							</ul>
+						</div>
+					</div>
+					`;
+				});
+				$('#direcciones').html(template);
 			}
 		);
 	}
+
+	$(document).on('click', '.eliminar_direccion', (e) => {
+		/* Selecciona el primer elemento sobre el cual se da un click.  */
+		let elemento = $(this)[0].activeElement;
+		/* Obtiene el valor del atributo llamado dir_id, del elemento seleccionado */
+		let id = $(elemento).attr('dir_id');
+		console.log(id);
+
+		/* Código de sweetalert2 */
+		const swalWithBootstrapButtons = Swal.mixin({
+			customClass: {
+				confirmButton: "btn btn-success m-3",
+				cancelButton: "btn btn-danger",
+			},
+			buttonsStyling: false,
+		});
+
+		swalWithBootstrapButtons
+			.fire({
+				title: "Esta seguro de borrar esta dirección?",
+				text: "¡No podrás revertir esto!",
+				icon: "warning",
+				showCancelButton: true,
+				confirmButtonText: "¡Sí, bórralo!",
+				cancelButtonText: "¡No, cancela!",
+				reverseButtons: true,
+			})
+			.then((result) => {
+				if (result.isConfirmed) {
+					funcion = "eliminar_direccion";
+					$.post('../Controllers/UsuarioDistritoController.php', {  funcion, id }, (response) => {
+						console.log(response);
+					});
+					/* swalWithBootstrapButtons.fire(
+						"¡Eliminado!",
+						"Su dirección ha sido eliminada.",
+						"éxito"
+					); */
+				} else if (result.dismiss === Swal.DismissReason.cancel) {
+					swalWithBootstrapButtons.fire(
+						"Cancelado",
+						"Tu dirección está segura :)",
+						"error"
+					);
+				}
+			});
+	});
 
 	function llenar_departamentos() {
 		funcion = "llenar_departamentos";

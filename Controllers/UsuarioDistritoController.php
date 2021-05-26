@@ -19,6 +19,7 @@ if($_POST['funcion'] == 'llenar_direcciones') {
     $json = array();
     foreach ($usuario_distrito->objetos as $objeto) {
         $json[] = array(
+            'id'=>$objeto->id,
             'direccion' => $objeto->direccion,
             'referencia' => $objeto->referencia,
             'departamento' => $objeto->departamento,
@@ -30,5 +31,10 @@ if($_POST['funcion'] == 'llenar_direcciones') {
     echo $jsonstring;
 }
 
+if ($_POST['funcion'] == 'eliminar_direccion') {
+    $id_direccion = $_POST['id'];
+    $usuario_distrito->eliminar_direccion($id_direccion);
+    echo 'success';
+}
 
 
