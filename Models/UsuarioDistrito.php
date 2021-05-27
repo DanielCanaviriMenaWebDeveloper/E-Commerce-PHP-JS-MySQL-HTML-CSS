@@ -28,4 +28,8 @@
             $this->objetos = $query->fetchAll();
             return $this->objetos;
         }
+
+        function eliminar_direccion($id_direccion) {
+            
+        }
     }   
