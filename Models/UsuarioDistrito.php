@@ -22,7 +22,7 @@
             JOIN distrito d ON d.id = ud.id_distrito 
             JOIN provincia p ON p.id = d.id_provincia
             JOIN departamento dep ON dep.id = p.id_departamento
-            WHERE id_usuario = :id";
+            WHERE id_usuario = :id AND estado = 'A'";
             $query = $this->acceso->prepare($sql);
             $query->execute(array(':id' => $id_usuario));
             $this->objetos = $query->fetchAll();
@@ -30,6 +30,8 @@
         }
 
         function eliminar_direccion($id_direccion) {
-            
+            $sql = "UPDATE usuario_distrito SET estado = 'I' WHERE id = :id_direccion";
+            $query = $this->acceso->prepare($sql);
+            $query->execute(array(':id_direccion' => $id_direccion));
         }
     }   

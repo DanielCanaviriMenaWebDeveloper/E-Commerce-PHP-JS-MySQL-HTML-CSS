@@ -1,5 +1,6 @@
 <?php 
     include_once '../Models/UsuarioDistrito.php';
+    include_once '../Util/Config/config.php';
     $usuario_distrito = new UsuarioDistrito();
     session_start();
     
@@ -19,7 +20,8 @@ if($_POST['funcion'] == 'llenar_direcciones') {
     $json = array();
     foreach ($usuario_distrito->objetos as $objeto) {
         $json[] = array(
-            'id'=>$objeto->id,
+            /* Encriptación del id */
+            'id'=>openssl_encrypt($objeto->id, CODE, KEY),
             'direccion' => $objeto->direccion,
             'referencia' => $objeto->referencia,
             'departamento' => $objeto->departamento,

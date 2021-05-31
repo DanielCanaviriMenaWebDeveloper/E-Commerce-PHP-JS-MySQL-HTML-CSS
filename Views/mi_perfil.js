@@ -86,7 +86,6 @@ $(document).ready(function () {
 		/* Obtiene el valor del atributo llamado dir_id, del elemento seleccionado */
 		let id = $(elemento).attr('dir_id');
 		console.log(id);
-
 		/* Código de sweetalert2 */
 		const swalWithBootstrapButtons = Swal.mixin({
 			customClass: {
@@ -109,14 +108,14 @@ $(document).ready(function () {
 			.then((result) => {
 				if (result.isConfirmed) {
 					funcion = "eliminar_direccion";
-					/* $.post('../Controllers/UsuarioDistritoController.php', {  funcion, id }, (response) => {
+					$.post('../Controllers/UsuarioDistritoController.php', {  funcion, id }, (response) => {
 						console.log(response);
-					}); */
-					swalWithBootstrapButtons.fire(
+					}); 
+					/* swalWithBootstrapButtons.fire(
 						"¡Eliminado!",
 						"Su dirección ha sido eliminada.",
 						"success"
-					);
+					); */
 				} else if (result.dismiss === Swal.DismissReason.cancel) {
 					swalWithBootstrapButtons.fire(
 						"Cancelado",
