@@ -4,7 +4,7 @@
                 <title>Mi perfil | Ecommerce</title>
                 <!-- Content Header (Page header) -->
 
-<!-- Modal -->
+<!-- Modal para Agregar Direcciones-->
 <div class="modal fade" id="modal_direcciones" role="dialog">
 	<div class="modal-dialog">
 		<div class="modal-content">
@@ -62,6 +62,60 @@
 	</div>
 </div>
 <!-- / Modal -->
+
+<!-- Modal para Editar Datos Personales-->
+<div class="modal fade" id="modal_datos" role="dialog">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h5 class="modal-title" id="exampleModalLabel">Editar Datos Personales</h5>
+
+				<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+			</div>
+			<!-- <form id="form-direccion"> -->
+				<div class="modal-body">
+					<!-- Form -->
+					<form id="form-datos">
+						<!-- imput Nombres -->
+						<div class="form-group">
+							<label for="nombres_mod">Nombres: </label>
+							<input type="text" name="nombres_mod" id="nombres_mod" class="form-control" placeholder="Ingrese nombres">
+						</div>
+
+						<!-- input Apellidos -->
+						<div class="form-group">
+							<label for="apellidos_mod">Apellidos: </label>
+							<input type="text" name="apellidos_mod" id="apellidos_mod" class="form-control" placeholder="Ingrese apellidos">
+						</div>
+
+						<!-- input DNI -->
+						<div class="form-group">
+							<label for="dni_mod">DNI: </label>
+							<input type="text" name="dni_mod" id="dni_mod" class="form-control" placeholder="Ingrese DNI">
+						</div>
+
+						<!-- input Email -->
+						<div class="form-group">
+							<label for="email_mod">Email: </label>
+							<input type="text" name="email_mod" id="email_mod" class="form-control" placeholder="Ingrese email">
+						</div>
+
+						<!-- input Teléfono -->
+						<div class="form-group">
+							<label for="telefono_mod">Teléfono: </label>
+							<input type="text" name="telefono_mod" id="telefono_mod" class="form-control" placeholder="Ingrese teléfono">
+						</div>
+				</div>
+
+				<div class="modal-footer">
+					<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+					<button type="submit" class="btn btn-primary">Guardar</button>
+				</div>
+			</form>
+		</div>
+	</div>
+</div>
+<!-- / Modal para Editar Datos Personales-->
 
 <!-- Main content -->
 <section class="content">
@@ -187,7 +241,7 @@
 						<strong>Mis datos personales</strong>
 
 						<div class="card-tools">
-							<button type="button" class="btn btn-tool">
+							<button type="button" class="editar_datos btn btn-tool" data-bs-toggle="modal" data-bs-target="#modal_datos">
 								<i class="fas fa-pencil-alt"></i>
 							</button>
 						</div> 

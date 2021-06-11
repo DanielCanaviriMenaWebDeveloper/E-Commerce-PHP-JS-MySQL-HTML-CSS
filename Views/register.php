@@ -17,7 +17,8 @@
         <link rel="stylesheet" href="../Util/css/sweetalert2.min.css">
         <link rel="shortcut icon" href="#">
     </head>
-    <!-- Modal -->
+
+    <!-- Modal - Terminos de Servicio-->
     <!-- El atributo id nos sirve para poder llamar el modal -->
     <div class="modal fade" id="terminos" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
@@ -45,7 +46,8 @@
             </div>
         </div>
     </div>
-    <!-- /.Modal -->
+    <!-- /.Modal - Terminos de Servicio -->
+
     <body class="hold-transition login-page">
         <div class="mt-5">
             <div class="login-logo">
@@ -61,29 +63,31 @@
 
                         <div class="card-body">
                             <div class="row">
+                                <!-- Nombre de Usuario -->
                                 <div class="col-sm-12">
                                     <div class="form-group">
                                         <label for="username">Nombre de Usuario</label>
                                         <input type="text" name="username" class="form-control" id="username" placeholder="Ingrese nombre de usuario">
                                     </div>
                                 </div>
-
+                                
                                 <div class="col-sm-6">
+                                    <!-- Contraseña -->
                                     <div class="form-group">
                                         <label for="pass">Contraseña</label>
                                         <input type="password" name="pass" class="form-control" id="pass" placeholder="Ingrese contraseña">
                                     </div>
-
+                                    <!-- Nombres -->
                                     <div class="form-group">
                                         <label for="nombres">Nombre(s)</label>
                                         <input type="text" name="nombres" class="form-control" id="nombres" placeholder="Ingrese nombre(s)">
                                     </div>
-
+                                    <!-- DNI -->
                                     <div class="form-group">
                                         <label for="dni">DNI</label>
                                         <input type="text" name="dni" class="form-control" id="dni" placeholder="Ingrese DNI">
                                     </div>
-
+                                    <!-- Teléfono -->
                                     <div class="form-group">
                                         <label for="telefono">Teléfono</label>
                                         <input type="text" name="telefono" class="form-control" id="telefono" placeholder="Ingrese Teléfono">
@@ -91,16 +95,17 @@
                                 </div>
 
                                 <div class="col-sm-6">
+                                    <!-- Repetir Contraseña -->
                                     <div class="form-group">
                                         <label for="pass-repeat">Repetir Contraseña</label>
                                         <input type="password" name="pass_repeat" class="form-control" id="pass_repeat" placeholder="Ingrese de nuevo su contraseña">
                                     </div>
-
+                                    <!-- Apellidos -->
                                     <div class="form-group">
                                         <label for="apellidos">Apellido(s)</label>
                                         <input type="text" name="apellidos" class="form-control" id="apellidos" placeholder="Ingrese apellido(s)">
                                     </div>
-
+                                    <!-- Correo Electrónico -->
                                     <div class="form-group">
                                         <label for="email">Correo Electrónico</label>
                                         <input type="text" name="email" class="form-control" id="email" placeholder="Ingrese correo electrónico">
@@ -108,6 +113,7 @@
                                 </div>
 
                                 <div class="col-sm-12">
+                                    <!-- Terminos de Servicio -->
                                     <div class="form-group mb-0">
                                         <div class="custom-control custom-checkbox">
                                             <input type="checkbox" name="terms" class="custom-control-input" id="terms">

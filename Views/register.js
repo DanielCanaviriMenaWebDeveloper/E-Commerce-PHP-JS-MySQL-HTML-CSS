@@ -2,6 +2,7 @@ $(document).ready(function() {
 	var funcion;
 	verificar_sesion();
 
+	/* Verifica si hay una sesión abierta */
 	function verificar_sesion() {
 		funcion = "verificar_sesion";
 		$.post(
@@ -17,6 +18,7 @@ $(document).ready(function() {
 		);
 	}
 
+	/* Registra los datos ya validados en el formulario */
     $.validator.setDefaults({
 		submitHandler: function () {
 			/* alert("¡Formulario enviado correctamente!"); */
@@ -57,6 +59,7 @@ $(document).ready(function() {
 		},
 	});
 	
+	/* Método personalizado para validar si un usuario ya existe en la tabla usuario de la BD */
     jQuery.validator.addMethod(
 		"usuario_existente",
 		function (value, element) {
@@ -94,6 +97,7 @@ $(document).ready(function() {
 		"* El nombre de usuario ya existe, introduzca un nombre de usuario distinto"
 	);
 
+	/* Método perzonalizado para validar que el campo solo permita letras */
     jQuery.validator.addMethod(
 		"letras",
 		function(value, element) {
@@ -102,7 +106,7 @@ $(document).ready(function() {
 		"* Este campo solo permite letras"
 	);
 
-	
+	/* Código para validar formulario */
 	$("#form-register").validate({
 		rules: {
 			username: {
