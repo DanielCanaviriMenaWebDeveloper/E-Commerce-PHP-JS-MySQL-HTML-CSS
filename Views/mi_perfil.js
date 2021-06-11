@@ -109,13 +109,28 @@ $(document).ready(function () {
 				if (result.isConfirmed) {
 					funcion = "eliminar_direccion";
 					$.post('../Controllers/UsuarioDistritoController.php', {  funcion, id }, (response) => {
-						console.log(response);
+						/* console.log(response); */
+						if (response == 'success') {
+							swalWithBootstrapButtons.fire(
+								"¡Eliminado!",
+								"Su dirección ha sido eliminada.",
+								"success"
+							);
+							llenar_direcciones();
+						} else if (response == 'error') {
+							swalWithBootstrapButtons.fire(
+								"Advertencia",
+								"No se permite alteraciones en la integrida de datos!!!",
+								"error"
+							);		
+						} else {
+							swalWithBootstrapButtons.fire(
+								"No se pudo eliminar la dirección",
+								"Error en el Sistema =( ",
+								"error"
+							);
+						}
 					}); 
-					/* swalWithBootstrapButtons.fire(
-						"¡Eliminado!",
-						"Su dirección ha sido eliminada.",
-						"success"
-					); */
 				} else if (result.dismiss === Swal.DismissReason.cancel) {
 					swalWithBootstrapButtons.fire(
 						"Cancelado",
@@ -240,6 +255,7 @@ $(document).ready(function () {
 						$("#form-direccion").trigger("reset");
 						$("#departamento").val("").trigger("change");
 					});
+					llenar_direcciones();
 				}else {
 					Swal.fire({
 						icon: "error",
