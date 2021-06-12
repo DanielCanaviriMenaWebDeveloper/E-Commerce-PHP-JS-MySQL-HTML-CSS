@@ -80,3 +80,20 @@ if($_POST['funcion'] == 'obtener_datos') {
 
 }   
 
+/* Los datos recibidos son mediante AJAX usando FormData,
+    por tanto cada uno de los campos son accedidos mediante el atributo name 
+    definidos en el formulario de donde se obtienen.. */
+if($_POST['funcion'] == 'editar_datos') {
+    $id_usuario = $_SESSION['id'];
+    $nombres = $_POST['nombres_mod'];
+    $apellidos = $_POST['apellidos_mod'];
+    $dni = $_POST['dni_mod'];
+    $email = $_POST['email_mod'];
+    $telefono = $_POST['telefono_mod'];
+    /* Forma de capturar un archivo y su nombre, usando FormData */
+    $avatar = $_FILES['avatar_mod']['name'];
+    echo $avatar;
+    /* $usuario->editar_datos($id_usuario, $nombres, $apellidos, $dni, $email, $telefono); */
+    echo 'success';
+}
+

@@ -74,8 +74,9 @@
 			</div>
 			<!-- <form id="form-direccion"> -->
 				<div class="modal-body">
-					<!-- Form -->
-					<form id="form-datos">
+					<!-- Formulario  -->
+					<!-- El atributo enctype nos permite enviar archivos como fotos entre otros mediante el formulario  -->
+					<form id="form-datos" enctype="multipart/form-data">
 						<!-- imput Nombres -->
 						<div class="form-group">
 							<label for="nombres_mod">Nombres: </label>
@@ -105,7 +106,26 @@
 							<label for="telefono_mod">Teléfono: </label>
 							<input type="text" name="telefono_mod" id="telefono_mod" class="form-control" placeholder="Ingrese teléfono">
 						</div>
+
+						<!-- Imagen -->
+						<div class="form-group">
+							<label for="exampleInputFile">Avatar</label>
+					
+							<div class="input-group">
+								<div class="custom-file">
+									<input type="file" class="custom-file-input" name = "avatar_mod">
+									<label class="custom-file-label" for="exampleInputFile">Seleccione un Avatar</label>
+								</div>
+
+								<!-- <div class="input-group-append">
+									<span class="input-group-text">Upload</span>
+								</div> -->
+							</div>
+						</div>
 				</div>
+
+
+				
 
 				<div class="modal-footer">
 					<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>

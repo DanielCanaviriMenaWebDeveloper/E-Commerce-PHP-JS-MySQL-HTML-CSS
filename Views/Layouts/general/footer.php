@@ -36,7 +36,9 @@
 
         <!-- Sweet Alert 2 -->
         <script src="../Util/js/sweetalert2.min.js"></script>
-
+        
+        <!-- Custom file input : Libreria que permite cargar archivos en un formulario -->
+        <script src="../Util/js/bs-custom-file-input.min.js"></script>
         
     </body>
 </html>

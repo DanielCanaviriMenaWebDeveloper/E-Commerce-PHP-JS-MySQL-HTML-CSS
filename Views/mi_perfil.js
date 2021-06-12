@@ -1,5 +1,8 @@
 $(document).ready(function () {
 	var funcion;
+
+	bsCustomFileInput.init(); /* Inicia la libreria CustomFileInput que carga archivos en un formulario. */
+
 	verificar_sesion();
 	obtener_datos();
 	llenar_departamentos();
@@ -319,10 +322,29 @@ $(document).ready(function () {
 		);
 	});
 
-	/* Registra los datos ya validados en el formulario */
+	/* Registra los datos ya validados del formulario, del modal que permite editar  Datos Personales del Usuario */
 	$.validator.setDefaults({
 		submitHandler: function () {
-			alert("Todos los campos validados");
+			/* alert("Todos los campos validados"); */
+			funcion = "editar_datos";
+			/* Como en unos de los campos nesecitamos enviar archivos al servidor 
+			lo haremos usando FormData, pero solo se lo puede hacer
+			mediante AJAX */
+			let datos = new FormData($('#form-datos')[0]); /* Captura todos los datos del Formulario */
+			datos.append("funcion", funcion); /* Incluye la variable función en el FormData llamado datos */
+			$.ajax({
+				type: "POST",
+				url: "../Controllers/UsuarioController.php",
+				data: datos,
+				/* Los atributos cache, processData y contentType nos permitira enviar imágens y archivos. */
+				cache: false,
+				processData: false,
+				contentType: false,
+				success: function(response) {
+					console.log(response);
+				}
+			});
+			/* obtener_datos(); */
 		},
 	});
 
