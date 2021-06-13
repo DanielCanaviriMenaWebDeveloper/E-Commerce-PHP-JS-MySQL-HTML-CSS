@@ -342,8 +342,27 @@ $(document).ready(function () {
 				contentType: false,
 				success: function(response) {
 					console.log(response);
-					verificar_sesion();
-					obtener_datos();
+					if (response == 'success') {
+						Swal.fire({
+							position: "center",
+							icon: "success",
+							title:
+								"Se ha editado sus datos correctamente",
+							showConfirmButton: false,
+							timer: 2000,
+						}).then(function () {
+							verificar_sesion();
+							obtener_datos();
+						});
+					}else {
+						Swal.fire({
+							icon: "error",
+							title: "Error",
+							text:
+								"Hubo conflicto al editar sus datos, comuniquese con el área de sistemas",
+						});
+					}
+					
 				}
 			});
 		},

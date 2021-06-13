@@ -92,7 +92,6 @@ if($_POST['funcion'] == 'editar_datos') {
     $telefono = $_POST['telefono_mod'];
     /* Forma de capturar un archivo y su nombre, usando FormData */
     $avatar = $_FILES['avatar_mod']['name'];
-    var_dump($avatar);
     /* echo $avatar; */
     if ($avatar != "") { /* Si la variable $avatar no esta vacio significa que se esta enviando una imágen. */
         $nombre = uniqid() . '-' . $avatar; /* Agrega un código unico al nombre de la imágen */
@@ -110,7 +109,6 @@ if($_POST['funcion'] == 'editar_datos') {
         $_SESSION['avatar'] = $nombre;
     }else {
         $nombre = "";
-        echo "Esta vacio";
     }
     
     $usuario->editar_datos($id_usuario, $nombres, $apellidos, $dni, $email, $telefono, $nombre);
