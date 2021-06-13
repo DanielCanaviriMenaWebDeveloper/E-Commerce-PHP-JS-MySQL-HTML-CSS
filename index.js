@@ -14,8 +14,8 @@ $(document).ready(function () {
 					$('#nav_login').hide();
 					$("#nav_register").hide();
                     $('#usuario_nav').text(sesion.user + ' #' + sesion.id);
-                    $('#avatar_nav').attr('src', 'Util/img/'+sesion.avatar);
-                    $('#avatar_menu').attr('src', 'Util/img/'+sesion.avatar);
+                    $('#avatar_nav').attr('src', 'Util/img/Users/'+sesion.avatar);
+                    $('#avatar_menu').attr('src', 'Util/img/Users/'+sesion.avatar);
                     $('#usuario_menu').text(sesion.user);
 				} else {
                     $('#nav_usuario').hide();

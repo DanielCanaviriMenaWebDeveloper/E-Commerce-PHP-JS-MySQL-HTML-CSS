@@ -188,7 +188,7 @@
                 <!-- Sidebar user (optional) -->
                 <div class="user-panel mt-3 pb-3 mb-3 d-flex">
                     <div class="image">
-                        <img id="avatar_menu" src="../Util/img/user_default.jpg" class="img-circle elevation-2" alt="User Image">
+                        <img id="avatar_menu" src="../Util/img/Users/user_default.jpg" class="img-circle elevation-2" alt="User Image">
                     </div>
                     <div class="info">
                     <a id="usuario_menu" href="#" class="d-block"></a>

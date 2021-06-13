@@ -228,11 +228,11 @@ $(document).ready(function () {
 					$("#usuario_nav").text(sesion.user + " #" + sesion.id);
 					$("#avatar_nav").attr(
 						"src",
-						"../Util/img/" + sesion.avatar
+						"../Util/img/Users/" + sesion.avatar
 					);
 					$("#avatar_menu").attr(
 						"src",
-						"../Util/img/" + sesion.avatar
+						"../Util/img/Users/" + sesion.avatar
 					);
 					$("#usuario_menu").text(sesion.user);
 				} else {
@@ -257,7 +257,7 @@ $(document).ready(function () {
 				$("#tipo_usuario").text(usuario.tipo_usuario);
 				$("#avatar_perfil").attr(
 					"src",
-					"../Util/img/" + usuario.avatar
+					"../Util/img/Users/" + usuario.avatar
 				);
 				$("#nombres").text(usuario.nombres + " " + usuario.apellidos);
 				$("#dni").text(usuario.dni);
@@ -342,9 +342,10 @@ $(document).ready(function () {
 				contentType: false,
 				success: function(response) {
 					console.log(response);
+					verificar_sesion();
+					obtener_datos();
 				}
 			});
-			/* obtener_datos(); */
 		},
 	});
 

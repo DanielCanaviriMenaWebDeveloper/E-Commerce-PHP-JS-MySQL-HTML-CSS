@@ -92,8 +92,28 @@ if($_POST['funcion'] == 'editar_datos') {
     $telefono = $_POST['telefono_mod'];
     /* Forma de capturar un archivo y su nombre, usando FormData */
     $avatar = $_FILES['avatar_mod']['name'];
-    echo $avatar;
-    /* $usuario->editar_datos($id_usuario, $nombres, $apellidos, $dni, $email, $telefono); */
-    echo 'success';
+    var_dump($avatar);
+    /* echo $avatar; */
+    if ($avatar != "") { /* Si la variable $avatar no esta vacio significa que se esta enviando una imágen. */
+        $nombre = uniqid() . '-' . $avatar; /* Agrega un código unico al nombre de la imágen */
+        $ruta = '../Util/img/Users/' . $nombre; /* Concatena la ruta donde se almacenara la imágen y el nombre de la imágen */
+        /* move_uploaded_file(string $filename, string $destination) */
+        move_uploaded_file($_FILES['avatar_mod']['tmp_name'], $ruta); /* tmp_name : C:\xampp\tmp\phpB840.tmp - Ruta del Archivo Temporal*/
+        $usuario->obtener_datos($id_usuario);
+        foreach($usuario->objetos as $objeto) {
+            $avatar_actual = $objeto->avatar; /* Obtiene el nombre actual del campo llamado avatar correspondiente a la tabla usuario de nuestra BD */
+            if($avatar_actual != 'user_default.jpg') { /* Evita qu se borre la imágen por defecto que tiene todos los usuarios */
+                unlink('../Util/img/Users/' . $avatar_actual); /* Borra la imágen que esta en la ruta definida */
+            }
+        }
+        /* Reasigno la imagen del avatar dentro la sesión actual */
+        $_SESSION['avatar'] = $nombre;
+    }else {
+        $nombre = "";
+        echo "Esta vacio";
+    }
+    
+    $usuario->editar_datos($id_usuario, $nombres, $apellidos, $dni, $email, $telefono, $nombre);
+    echo 'success'; 
 }
 

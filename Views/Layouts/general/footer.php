@@ -29,7 +29,7 @@
         
         <!-- Jquery Validate -->
         <script src="../Util/js/jquery.validate.min.js"></script>
-        <!-- <script src="../Util/js/additional-methods.min.js"></script> -->
+        <script src="../Util/js/additional-methods.min.js"></script>
 
         <!-- Select2 -->
         <script src="../Util/js/select2.min.js"></script>

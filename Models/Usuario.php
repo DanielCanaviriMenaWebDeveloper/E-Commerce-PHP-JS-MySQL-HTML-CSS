@@ -42,17 +42,32 @@
             return $this->objetos;
         }
 
-        function editar_datos($id_usuario, $nombres, $apellidos, $dni, $email, $telefono) {
-            $sql = "UPDATE usuario SET nombres = :nombres, apellidos = :apellidos, dni = :dni, email = :email, telefono = :telefono WHERE id = :id_usuario";
-            $query = $this->acceso->prepare($sql);
-            $variables = array(
-                ':nombres' => $nombres, 
-                ':apellidos' => $apellidos, 
-                ':dni' => $dni, 
-                ':email' => $email, 
-                ':telefono' => $telefono, 
-                ':id_usuario' => $id_usuario
-            );
-            $query->execute($variables);
+        function editar_datos($id_usuario, $nombres, $apellidos, $dni, $email, $telefono, $nombre) {
+            if ($nombre != "") {
+                $sql = "UPDATE usuario SET nombres = :nombres, apellidos = :apellidos, dni = :dni, email = :email, telefono = :telefono, avatar = :avatar WHERE id = :id_usuario";
+                $query = $this->acceso->prepare($sql);
+                $variables = array(
+                    ':nombres' => $nombres, 
+                    ':apellidos' => $apellidos, 
+                    ':dni' => $dni, 
+                    ':email' => $email, 
+                    ':telefono' => $telefono, 
+                    ':id_usuario' => $id_usuario, 
+                    ':avatar' => $nombre
+                );
+                $query->execute($variables);
+            } else { /* Si no se desea editar el avatar solo modificamos el resto de campos enviados */
+                $sql = "UPDATE usuario SET nombres = :nombres, apellidos = :apellidos, dni = :dni, email = :email, telefono = :telefono WHERE id = :id_usuario";
+                $query = $this->acceso->prepare($sql);
+                $variables = array(
+                    ':nombres' => $nombres, 
+                    ':apellidos' => $apellidos, 
+                    ':dni' => $dni, 
+                    ':email' => $email, 
+                    ':telefono' => $telefono, 
+                    ':id_usuario' => $id_usuario
+                );
+                $query->execute($variables);
+            }
         }
     }   
