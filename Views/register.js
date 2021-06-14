@@ -101,7 +101,9 @@ $(document).ready(function() {
     jQuery.validator.addMethod(
 		"letras",
 		function(value, element) {
-			return /^[A-Za-z]+$/.test(value);
+			/* Código que permitira que los espacios sean ignorados solo para la validación */
+			let variable = value.replace(/ /g, "");
+			return /^[A-Za-z]+$/.test(variable);
 		},
 		"* Este campo solo permite letras"
 	);

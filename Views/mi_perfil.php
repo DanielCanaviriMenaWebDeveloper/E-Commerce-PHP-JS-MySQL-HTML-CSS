@@ -4,7 +4,7 @@
                 <title>Mi perfil | Ecommerce</title>
                 <!-- Content Header (Page header) -->
 
-<!-- Modal para Agregar Direcciones-->
+<!-- Modal para Agregar Direcciones -->
 <div class="modal fade" id="modal_direcciones" role="dialog">
 	<div class="modal-dialog">
 		<div class="modal-content">
@@ -61,9 +61,9 @@
 		</div>
 	</div>
 </div>
-<!-- / Modal -->
+<!-- / Modal para Agregar Direcciones -->
 
-<!-- Modal para Editar Datos Personales-->
+<!-- Modal para Editar Datos Personales -->
 <div class="modal fade" id="modal_datos" role="dialog">
 	<div class="modal-dialog">
 		<div class="modal-content">
@@ -135,7 +135,49 @@
 		</div>
 	</div>
 </div>
+<!-- / Modal para Editar Datos Personales -->
+
+<!-- Modal para Editar Password -->
+<div class="modal fade" id="modal_contra" role="dialog">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h5 class="modal-title" id="exampleModalLabel">Cambiar contraseña</h5>
+
+				<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+			</div>
+				<div class="modal-body">
+					<!-- Formulario  -->
+					<form id="form-contra">
+						<!-- imput Contraseña Actual -->
+						<div class="form-group">
+							<label for="pass_old">Contraseña actual</label>
+							<input type="password" name="pass_old" id="pass_old" class="form-control" placeholder="Ingrese contraseña actual">
+						</div>
+
+						<!-- input Nuevo Password -->
+						<div class="form-group">
+							<label for="pass_new">Nueva contraseña </label>
+							<input type="password" name="pass_new" id="pass_new" class="form-control" placeholder="Ingrese nueva contraseña">
+						</div>
+
+						<!-- input Repetir Password -->
+						<div class="form-group">
+							<label for="pass_repeat">Repetir nueva contraseña</label>
+							<input type="password" name="pass_repeat" id="pass_repeat" class="form-control" placeholder="Confirmar nueva contraseña">
+						</div>
+				</div>
+
+				<div class="modal-footer">
+					<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+					<button type="submit" class="btn btn-primary">Actualizar información</button>
+				</div>
+			</form>
+		</div>
+	</div>
+</div>
 <!-- / Modal para Editar Datos Personales-->
+
 
 <!-- Main content -->
 <section class="content">
@@ -288,18 +330,11 @@
 							</div>
 						</div>
 					</div>
-					<!--
+					
 					<div class="card-footer">
-						<div class="text-right">
-							<a href="#" class="btn btn-sm bg-teal">
-								<i class="fas fa-comments"></i>
-							</a>				
-							<a href="#" class="btn btn-sm btn-primary">
-								<i class="fas fa-user"></i> View Profile
-							</a>
-						</div>
+						<button class="btn btn-warning btn-block" data-bs-toggle="modal" data-bs-target="#modal_contra">Cambiar contraseña</button>
 					</div>
-					-->
+					
 				</div>
 				<!-- / Card Mis dátos personales -->
 

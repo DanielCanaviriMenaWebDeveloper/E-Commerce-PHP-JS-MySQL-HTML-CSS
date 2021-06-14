@@ -330,8 +330,13 @@ $(document).ready(function () {
 			/* Como en unos de los campos nesecitamos enviar archivos al servidor 
 			lo haremos usando FormData, pero solo se lo puede hacer
 			mediante AJAX */
-			let datos = new FormData($('#form-datos')[0]); /* Captura todos los datos del Formulario */
-			datos.append("funcion", funcion); /* Incluye la variable función en el FormData llamado datos */
+			let datos = new FormData(
+				$("#form-datos")[0]
+			); /* Captura todos los datos del Formulario */
+			datos.append(
+				"funcion",
+				funcion
+			); /* Incluye la variable función en el FormData llamado datos */
 			$.ajax({
 				type: "POST",
 				url: "../Controllers/UsuarioController.php",
@@ -340,21 +345,20 @@ $(document).ready(function () {
 				cache: false,
 				processData: false,
 				contentType: false,
-				success: function(response) {
+				success: function (response) {
 					console.log(response);
-					if (response == 'success') {
+					if (response == "success") {
 						Swal.fire({
 							position: "center",
 							icon: "success",
-							title:
-								"Se ha editado sus datos correctamente",
+							title: "Se ha editado sus datos correctamente",
 							showConfirmButton: false,
 							timer: 2000,
 						}).then(function () {
 							verificar_sesion();
 							obtener_datos();
 						});
-					}else {
+					} else {
 						Swal.fire({
 							icon: "error",
 							title: "Error",
@@ -362,8 +366,7 @@ $(document).ready(function () {
 								"Hubo conflicto al editar sus datos, comuniquese con el área de sistemas",
 						});
 					}
-					
-				}
+				},
 			});
 		},
 	});
@@ -445,4 +448,74 @@ $(document).ready(function () {
 			$(element).addClass("is-valid");
 		},
 	});
+
+	/* METODOS PARA VALIDAR MODAL DE CAMBIO DE CONTRASEÑAS */
+	$.validator.setDefaults({
+		submitHandler: function () {
+			alert("se valido todo");
+		},
+	});
+
+	jQuery.validator.addMethod(
+		"letras",
+		function (value, element) {
+			let variable = value.replace(/ /g, "");
+			return /^[A-Za-z]+$/.test(variable);
+		},
+		"* Este campo solo permite letras y no datos que contengan números"
+	);
+
+	$("#form-contra").validate({
+		rules: {
+			pass_old: {
+				required: true,
+				minlength: 8,
+				maxlength: 20,
+			},
+			pass_new: {
+				required: true,
+				minlength: 8,
+				maxlength: 20,
+			},
+			pass_repeat: {
+				required: true,
+				equalTo: "#pass_new",
+			},
+		},
+		messages: {
+			pass_old: {
+				required: "* Este campo es obligatorio",
+				minlength:
+					"* La contraseña debe tener como minimo 8 caracteres",
+				maxlength:
+					"* La contraseña debe tener como maximo 20 caracteres",
+			},
+			pass_new: {
+				required: "* Este campo es obligatorio",
+				minlength:
+					"* La contraseña debe tener como minimo 8 caracteres",
+				maxlength:
+					"* La contraseña debe tener como maximo 20 caracteres",
+			},
+			pass_repeat: {
+				required: "* Este campo es obligatorio",
+				equalTo: "* Ingrese una contraseña igual a la anterior",
+			}
+		},
+		errorElement: "span",
+		errorPlacement: function (error, element) {
+			error.addClass("invalid-feedback");
+			element.closest(".form-group").append(error);
+		},
+		highlight: function (element, errorClass, validClass) {
+			$(element).addClass("is-invalid");
+			$(element).removeClass("is-valid");
+		},
+		unhighlight: function (element, errorClass, validClass) {
+			$(element).removeClass("is-invalid");
+			$(element).addClass("is-valid");
+		}
+	});
+
+
 });
