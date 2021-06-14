@@ -70,4 +70,22 @@
                 $query->execute($variables);
             }
         }
+
+        function comprobar_pass($id_usuario, $pass_old) {
+            $sql = "SELECT * FROM usuario WHERE id=:id_usuario AND pass=:pass_old";
+            $query = $this->acceso->prepare($sql);
+            $query->execute(array(':id_usuario' => $id_usuario, ':pass_old' => $pass_old));
+            $this->objetos = $query->fetchAll();
+            return $this->objetos; 
+        }
+
+        function cambiar_contra($id_usuario, $pass_new) {
+            $sql = "UPDATE usuario SET pass=:pass_new WHERE id=:id_usuario";
+            $query = $this->acceso->prepare($sql);
+                $variables = array(
+                    ':pass_new' => $pass_new, 
+                    ':id_usuario' => $id_usuario, 
+                );
+                $query->execute($variables);
+        }
     }   
