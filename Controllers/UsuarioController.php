@@ -1,5 +1,6 @@
 <?php 
     include_once '../Models/Usuario.php';
+    include_once '../Util/Config/config.php';
     $usuario = new Usuario();
     /* echo $_POST['user'];
     echo $_POST['pass']; */
@@ -8,17 +9,17 @@
 if($_POST['funcion'] == 'login') {
     $user = $_POST['user'];
     $pass = $_POST['pass'];
-    $usuario->loguearse($user, $pass);
-    /* var_dump($usuario); */
+    /* $usuario->loguearse($user, $pass); */
+    $usuario->verificar_usuario($user); /* Solo nos retornara un registro */
     if($usuario->objetos != null) {
-        foreach($usuario->objetos as $objeto) {
-            /* var_dump($usuario); */
-            $_SESSION['id'] = $objeto->id;
-            $_SESSION['user'] = $objeto->user;
-            $_SESSION['tipo_usuario'] = $objeto->id_tipo;
-            $_SESSION['avatar'] = $objeto->avatar;
-        }
-        echo 'logueado';
+        $pass_bd = openssl_decrypt($usuario->objetos[0]->pass, CODE, KEY);
+        if ($pass_bd == $pass) {
+            $_SESSION['id'] = $usuario->objetos[0]->id;
+            $_SESSION['user'] = $usuario->objetos[0]->user;
+            $_SESSION['tipo_usuario'] = $usuario->objetos[0]->id_tipo;
+            $_SESSION['avatar'] = $usuario->objetos[0]->avatar;
+            echo 'logueado';
+        }   
     }
 }
 
@@ -49,7 +50,7 @@ if($_POST['funcion'] == 'verificar_usuario') {
 
 if($_POST['funcion'] == 'registrar_usuario') {
     $username = $_POST['username'];
-    $pass = $_POST['pass'];
+    $pass = openssl_encrypt($_POST['pass'], CODE, KEY);
     $nombres = $_POST['nombres'];
     $apellidos = $_POST['apellidos'];
     $dni = $_POST['dni'];
@@ -117,13 +118,21 @@ if($_POST['funcion'] == 'editar_datos') {
 
 if($_POST['funcion'] == 'cambiar_contra') {
     $id_usuario = $_SESSION['id'];
+    $user = $_SESSION['user'];
     $pass_old = $_POST['pass_old'];
     $pass_new = $_POST['pass_new'];
-    $usuario->comprobar_pass($id_usuario, $pass_old);
+    $usuario->verificar_usuario($user);
+   /*  $usuario->comprobar_pass($id_usuario, $pass_old); */
     if (!empty($usuario->objetos)) {
-        $usuario->cambiar_contra($id_usuario, $pass_new);
-        echo "success";
-    }else {
+        $pass_bd = openssl_decrypt($usuario->objetos[0]->pass, CODE, KEY);
+        if ($pass_bd == $pass_old) {
+            $pass_new_encriptada = openssl_encrypt($pass_new, CODE, KEY);
+            $usuario->cambiar_contra($id_usuario, $pass_new_encriptada);
+            echo "success";
+        } else {
+            echo "error";
+        }
+    } else {
         echo "error";
     }
 }

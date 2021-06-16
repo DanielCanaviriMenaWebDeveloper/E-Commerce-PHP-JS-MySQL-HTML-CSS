@@ -16,8 +16,7 @@ $(document).ready(function() {
         );
     }
 
-
-
+    /* Evento submit para poder loguearse */
     $('#form-login').submit(e => {
         funcion = 'login';
         let user = $('#user').val();
@@ -27,7 +26,7 @@ $(document).ready(function() {
 
         /* Comunicación desde login.js con usuarioController.php a travez del método post de JQuery */
         $.post('../Controllers/UsuarioController.php', { user, pass, funcion }, (response) => {
-            /* console.log(response); */
+            console.log(response);
             if(response == 'logueado') {
                 /* alert('Se inicio sesión correctamente'); */
                 toastr.success('Se inicio sesión correctamente');
